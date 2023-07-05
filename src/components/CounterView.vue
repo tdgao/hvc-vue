@@ -5,9 +5,9 @@ export interface CounterViewProps {
   title: string
   count: Ref<number>
   increaseCount: () => void
+  // todo add slot
 }
 const props = defineProps<CounterViewProps>()
-// const { title, count, increaseCount } = toRefs(props)
 const { title, count, increaseCount } = props
 </script>
 
@@ -27,7 +27,7 @@ main {
   justify-content: center;
   row-gap: 12px;
   font-size: 32px;
-  width: 500px;
+  width: 700px;
 }
 button {
   background-color: azure;

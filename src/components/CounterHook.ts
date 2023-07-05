@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import CounterView, { type CounterViewProps } from './CounterView.vue'
+import type { CounterViewProps } from './CounterView.vue'
 
 const CounterHook = (): CounterViewProps => {
   const count = ref(0)
