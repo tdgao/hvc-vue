@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { ref, toRefs } from 'vue'
+import { ref, toRefs, type Ref } from 'vue'
 
-interface Props {
+export interface CounterViewProps {
   title: string
-  count: number
+  count: Ref<number>
   increaseCount: () => void
 }
-const props = defineProps<Props>()
-
-const { title, count, increaseCount } = toRefs(props)
+const props = defineProps<CounterViewProps>()
+// const { title, count, increaseCount } = toRefs(props)
+const { title, count, increaseCount } = props
 </script>
 
 <template>
   <main>
     <h1>{{ title }}</h1>
-    <h2 for="input">Counter: {{ count }}</h2>
+    <h2>Counter: {{ count }}</h2>
     <button @click="increaseCount">Increase count</button>
   </main>
 </template>

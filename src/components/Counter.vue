@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import CounterView from './CounterView.vue'
 
-const count = ref(0)
-const increaseCount = () => {
-  count.value++
-}
+import CounterHook from './CounterHook'
+// const { count, increaseCount } = { ...CounterHook() }
 </script>
 
-<template>
-  <CounterView :title="'test title'" :count="count" :increase-count="increaseCount" />
-</template>
+<template><CounterView v-bind="{ ...CounterHook() }" /></template>
