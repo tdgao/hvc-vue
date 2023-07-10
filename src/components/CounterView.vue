@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, toRefs, type Ref } from 'vue'
+import { ref, toRefs, type Ref, type Slot } from 'vue'
 
 export interface CounterViewProps {
   title: string
@@ -9,6 +9,11 @@ export interface CounterViewProps {
 }
 const props = defineProps<CounterViewProps>()
 const { title, count, increaseCount } = props
+
+const slots = defineSlots<{
+  'custom-slot': Slot
+  hello: Slot
+}>()
 </script>
 
 <template>
@@ -16,6 +21,8 @@ const { title, count, increaseCount } = props
     <h1>{{ title }}</h1>
     <h2>Counter: {{ count }}</h2>
     <button @click="increaseCount">Increase count</button>
+    <slot name="custom-slot"></slot>
+    <slot name="hello"></slot>
   </main>
 </template>
 
